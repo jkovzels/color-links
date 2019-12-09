@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CustomInput extends React.Component {
   constructor() {
@@ -33,6 +34,6 @@ export default class CustomInput extends React.Component {
 }
 
 CustomInput.propTypes = {
-  color: React.PropTypes.string,
-  saveHandler: React.PropTypes.func,
+  color: PropTypes.string,
+  saveHandler: PropTypes.func,
 };

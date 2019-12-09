@@ -6,13 +6,16 @@ module.exports = {
   entry: './src/index.js',
   output: { path: path.join(__dirname, 'public/'), filename: 'popup.js' },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+			presets: [
+				"@babel/preset-env",
+				"@babel/preset-react"
+			]
         }
       }
     ]

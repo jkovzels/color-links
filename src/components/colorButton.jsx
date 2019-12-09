@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class ColorButton extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class ColorButton extends React.Component {
 }
 
 ColorButton.propTypes = {
-  clickHandler: React.PropTypes.func,
-  color: React.PropTypes.string,
-  active: React.PropTypes.bool,
+  clickHandler: PropTypes.func,
+  color: PropTypes.string,
+  active: PropTypes.bool,
 };
