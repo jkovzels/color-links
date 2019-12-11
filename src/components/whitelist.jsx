@@ -24,7 +24,7 @@ export default class WhitelistManager extends React.Component {
 		whitelist.getWhitelist()
 			.then((urls) => {
 				this.setState({whitelist: urls});
-				this.setState({isActive: urls.find(url => url === this.state.url)});
+				this.setState({isActive: !urls.find(url => url === this.state.url)});
 			})
 			.catch(err => console.log(err));
 	}

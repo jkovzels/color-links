@@ -53,7 +53,7 @@ const colorListener = function colorListener(request, sender, sendResponse) { //
 
 displayStyles(window.location)
 	.then(urls => {
-		if (!urls) return;
+		if (urls) return;
 
 		initializeStylesheet();
 		chrome.runtime.onMessage.addListener(colorListener);

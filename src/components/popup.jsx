@@ -63,14 +63,6 @@ export default class Popup extends React.Component {
 	render() {
 		return (
 			<div className="colorLinks">
-				<span style={{
-					color: this.state.activeColor,
-					paddingBottom: '5px',
-					transition: 'color .5s'
-				}}
-				>
-					A Quick Brown Fox Jumped
-        </span>
 				<div className="colorLinks--grid">
 					{
 						colors.map((color) => {
