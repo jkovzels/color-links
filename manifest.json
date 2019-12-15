@@ -22,9 +22,14 @@
       ],
       "js": [
         "src/content-scripts/contentscript.js"
-      ]
+	  ],
+	  "run_at": "document_idle"
     }
   ],
+  "background":{
+	   "scripts": ["src/background.js"],
+	  "persistent": false
+  },
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/",

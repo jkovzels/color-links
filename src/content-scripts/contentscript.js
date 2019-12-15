@@ -59,3 +59,43 @@ displayStyles(window.location)
 		chrome.runtime.onMessage.addListener(colorListener);
 	})
 	.catch(err => console.log(err));
+
+
+
+const LinkObserver = function() {
+	console.log("LinkObserver is up");
+	var links = document.getElementsByTagName('a');
+	console.log('links len: ' + links.length);
+	for (let i = 0;i < links.length;i++) {
+		const link = links[i];
+		const url = link.getAttribute('href');
+		console.log(url);
+		if(url == null){
+			continue;
+		}
+		chrome.runtime
+			.sendMessage({url: url}, visits => {
+				const visitCount = visits.length;
+				if (visitCount == 0) {
+					link.setAttribute('title', 'no visits so far');
+				} else {
+					link.setAttribute('title', visitCount == 1 ? "1 visit" : "" + visitCount + " visits");
+				}
+			});
+		continue;
+		new Promise((resolve, reject) => {
+			chrome.runtime
+				.sendMessage({url: url}, visits => {
+					const visitCount = visits.length;
+					if (visitCount == 0){
+						link.setAttribute('title', 'no visits so far');
+					}else {
+						link.setAttribute('title', visitCount == 1 ? "1 visit" : "" + visitCount + " visits");
+					}
+					resolve();
+				});
+		});
+	}
+}
+LinkObserver();
+
